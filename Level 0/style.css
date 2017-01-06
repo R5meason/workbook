@@ -1,0 +1,17 @@
+header {
+    border: 2px solid black;
+    width: 75%;
+    margin: 0 auto;
+
+    font-size: 2vh;
+}
+
+#result {
+    width: 40%;
+    margin: 0 auto;
+    font-size: 3vh;
+    border: 2px solid mediumblue;
+    margin-top: 5vh;
+    font-weight: bold;
+    text-align: center;
+}

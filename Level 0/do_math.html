@@ -4,48 +4,59 @@
     <meta charset="UTF-8">
     <title>Do Math</title>
 
-    <script>
-
-
-        var do_math = function (num1, num2, operator) {        //function takes 2 numbers, and decides what to do with them based on the 'operator' parameter
-            switch (operator) {
-                case "*":
-                case "x":             //multiple cases without a 'break' provide the same result
-                case "X":
-                    return (num1 * num2);
-
-                case "-":
-                    return (num1 - num2);
-
-                case "+":
-                    return (num1 + num2);
-
-                case "/":
-                    return (num1 / num2);
-            }
-        };
-
-        console.log(do_math(15, 3, "+"))
-
-
-    </script>
-
+    <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 <body>
-<h2>Build a function, do_math, that takes in 3 parameters num1 (number), num2 (number), and operator (string)</h2>
-
-<p>it uses the operator to determine what math to do to the numbers
-<p>if '+', it adds them</p>
-<p>if '-', it subtracts them</p>
-<p>if '*' or 'x' or 'X', it multiplies them</p>
-<p>if '/', it divides them</p>
-<p>if then returns the result</p>
-
-<p><em><strong>Example:</strong></em></p>
-<p>do_math(5,2,'*')</p>
-<p>Return 10</p>
-
-
-
+<header>
+    <h2>Build a function, do_math, that takes in 3 parameters num1 (number), num2 (number), and operator (string)</h2>
+    <p>it uses the operator to determine what math to do to the numbers
+    <p>if '+', it adds them</p>
+    <p>if '-', it subtracts them</p>
+    <p>if '*' or 'x' or 'X', it multiplies them</p>
+    <p>if '/', it divides them</p>
+    <p>if then returns the result</p>
+    <p>
+        <em>
+            <strong>Example:</strong>
+        </em>
+    </p>
+    <p>do_math(5,2,'*')</p>
+    <p>Return 10</p>
+</header>
+<div id="result">
+    <div id="number1"></div>
+    <div id="number2"></div>
+    <div id="oper"></div>
+    <div id="outcome"></div>
+</div>
 </body>
+<script>
+    var do_math = function (num1, num2, operator) {
+        if (operator === "x" || operator === "X" || operator === "*") {
+            document.getElementById("number1").innerHTML = "Number 1: " + num1;
+            document.getElementById("number2").innerHTML = "Number 2: " + num2;
+            document.getElementById("oper").innerHTML = "Operator: " + operator;
+            document.getElementById("outcome").innerHTML = num1 * num2;
+        }
+        else if (operator === "+") {
+            document.getElementById("number1").innerHTML = "Number 1: " + num1;
+            document.getElementById("number2").innerHTML = "Number 2: " + num2;
+            document.getElementById("oper").innerHTML = "Operator: " + operator;
+            document.getElementById("outcome").innerHTML = num1 + num2;
+        }
+        else if (operator === "-") {
+            document.getElementById("number1").innerHTML = "Number 1: " + num1;
+            document.getElementById("number2").innerHTML = "Number 2: " + num2;
+            document.getElementById("oper").innerHTML = "Operator: " + operator;
+            document.getElementById("outcome").innerHTML = num1 - num2;
+        }
+        else if (operator === "/") {
+            document.getElementById("number1").innerHTML = "Number 1: " + num1;
+            document.getElementById("number2").innerHTML = "Number 2: " + num2;
+            document.getElementById("oper").innerHTML = "Operator: " + operator;
+            document.getElementById("outcome").innerHTML = num1 / num2;
+        }
+    };
+    do_math(77, 11, "-");
+</script>
 </html>
