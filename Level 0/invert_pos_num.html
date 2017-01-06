@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invert Positive Number</title>
+   <script>
+       var invert_negatives = function (num1) {
+           num2 = -1;  //multiplying a positive number with -1 makes the positive number -(number). this is a local variable becuase this is the only function that uses it.
+           if (typeof num1 !== 'number') {  //checks to see if num1 is actually a number
+               return console.log(false);
+           }
+           else if (num1 >= 0) {  //checks to see if num1 is a positive number
+              return console.log(num1*num2);
+           }
+           else {
+               return console.log(num1); //otherwise if num1 is already a negative number, it remains the same.
+           }
+
+       };
+
+       invert_negatives(500);
+       invert_negatives(-200);
+       invert_negatives("laptop")
+   </script>
+
+</head>
+<body>
+<h1>Invert Positive Number</h1>
+<p>Build a function, invert_negatives, that takes a number as a parameter, and if the number is positive,
+    it makes it negative. If it isn't a number, it returns false
+</p>
+<p>- invert_negatives(-5)</p>
+<p>- Returns: -5</p>
+<p>- invert_negatives(4000)</p>
+<p>- Returns: -4000</p>
+<p>- invert_negatives('puppies')</p>
+<p>- Returns: false</p>
+</body>
+</html>
