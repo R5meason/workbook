@@ -24,41 +24,52 @@
     <p>Return 10</p>
 </header>
 <div id="result">
-    <div id="number1">
-        <input type=""
+    <label>
+        Number 1
+        <input type="text" id="number1" style="width: 50px;">
+    </label>
+    <br>
+    <label>
+        Number 2
+        <input type="text" id="number2" style="width: 50px;">
+    </label>
+    <div id="oper">
+        Operator:
+        <select id="op">
+            <option value="+"> +</option>
+            <option value="*"> *</option>
+            <option value="-"> -</option>
+            <option value="/"> /</option>
+        </select>
     </div>
-    <div id="number2"></div>
-    <div id="oper"></div>
+    <button type="button" onClick="do_math(
+    document.getElementById('number1').value,
+    document.getElementById('number2').value,
+    document.getElementById('op').value
+    )">Submit
+    </button>
+    <br>
+    Answer:
     <div id="outcome"></div>
 </div>
 </body>
 <script>
     var do_math = function (num1, num2, operator) {
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+
         if (operator === "x" || operator === "X" || operator === "*") {
-            document.getElementById("number1").innerHTML = "Number 1: " + num1;
-            document.getElementById("number2").innerHTML = "Number 2: " + num2;
-            document.getElementById("oper").innerHTML = "Operator: " + operator;
             document.getElementById("outcome").innerHTML = num1 * num2;
         }
         else if (operator === "+") {
-            document.getElementById("number1").innerHTML = "Number 1: " + num1;
-            document.getElementById("number2").innerHTML = "Number 2: " + num2;
-            document.getElementById("oper").innerHTML = "Operator: " + operator;
             document.getElementById("outcome").innerHTML = num1 + num2;
         }
         else if (operator === "-") {
-            document.getElementById("number1").innerHTML = "Number 1: " + num1;
-            document.getElementById("number2").innerHTML = "Number 2: " + num2;
-            document.getElementById("oper").innerHTML = "Operator: " + operator;
             document.getElementById("outcome").innerHTML = num1 - num2;
         }
         else if (operator === "/") {
-            document.getElementById("number1").innerHTML = "Number 1: " + num1;
-            document.getElementById("number2").innerHTML = "Number 2: " + num2;
-            document.getElementById("oper").innerHTML = "Operator: " + operator;
             document.getElementById("outcome").innerHTML = num1 / num2;
         }
     };
-    do_math(77, 11, "-");
 </script>
 </html>
