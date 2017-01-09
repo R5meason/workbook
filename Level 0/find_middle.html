@@ -3,68 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>find middle of string</title>
-    <script>
-
-
-        var find_middle_letters = function (myString) {
-            //TODO console.log outside the if statement, to avoid redundancy.
-            if (myString.length % 2 == 0) {   //checks if string has an even or odd number of characters
-                var y = myString.length / 2; //divides the length of the string by two
-                var x = y - 1; //because a substring is used, need to tell it where to begin and stop. var x = 2
-                var z = y + 1; //var y = 4.
-                return console.log("The two letters in the middle of the word '"+myString+"' are '"+myString.substring(x,z)+"'"); //the substring will begin at the 2nd position(e), and stop at the 4th position (n).
-            }
-            else {   //if number of characters in the string are not an even number, execute the code below:
-              var a = myString.length / 2;  //string length is divided by two
-              var b = a+.5; // .5 is added to the divided length, this way the middle letter is targeted in the substring
-              var c = b-1; //one is subtracted from the value of var b, this is so the substring knows where to stop
-              return console.log("The letter in the center of the word '"+myString+"' is '"+myString.substring(b,c)+"'");
-            }
-
-        };
-        var find_middle_letters_dan = function (myString, getTwoCharacters) {
-            if(getTwoCharacters === undefined){
-                getTwoCharacters = true;
-            }
-            //TODO console.log outside the if statement, to avoid redundancy.
-            //length = 6, midpoint = 3, needed characters = 2 and 3
-            //length = 3, midpoint = 1.5, needed characters = 1
-            var startingPoint = Math.ceil(myString.length / 2) - 1;
-            //length = 6: startingPoint = 2
-            //length = 3: startingPoint = 1
-            if(getTwoCharacters) {
-                if (myString.length % 2 == 0) {   //checks if string has an even or odd number of characters
-                    //divides the length of the string by two
-                    var charCount = 2;
-                }
-                else {   //if number of characters in the string are not an even number, execute the code below:
-                    var charCount = 1;
-                }
-            } else {
-                var charCount = 1;
-            }
-            var middleCharacters = myString.substring(startingPoint, startingPoint + charCount);
-            return middleCharacters;
-        };
-
-        find_middle_letters("evenly"); //012345 - need target the 3rd and 4th characters of this string
-        find_middle_letters("huh"); //012 need to target the character in the 1st position
-        console.log("The middle of %c'dominantly' %cis %c'"+find_middle_letters_dan("dominantly")+"'","color: red","color:none","color:green");
-    </script>
+    <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>find middle of string</h1>
+<header>
+    <h1>find middle of string</h1>
 
-<p>Build a function, find_middle_letters, that finds the middle of a string. If the string is an odd number of characters,
-it returns 1 letter. If it is an even number of characters, it returns 2 characters. It takes a string as a parameter
-</p>
+    <p>Build a function, find_middle_letters, that finds the middle of a string. If the string is an odd number of
+        characters,
+        it returns 1 letter. If it is an even number of characters, it returns 2 characters. It takes a string as a
+        parameter
+    </p>
 
-<p><em>Example:</em></p>
-<p>find_middle_letters('seven')</p>
-<p>Return: 'v'</p>
-<br>
-<p>find_middle_letters('dish')</p>
-<p>Return: 'is'</p>
+    <p><em>Example:</em></p>
+    <p>find_middle_letters('seven')</p>
+    <p>Return: 'v'</p>
+    <br>
+    <p>find_middle_letters('dish')</p>
+    <p>Return: 'is'</p>
+</header>
+<div id="result">
+
+    <label>Type in a single word to determine the middle letter(s)<input id="enterWord"> </label>
+    <button onclick="findMiddle(document.getElementById('enterWord').value)">Check It</button>
+    <br><br>
+    <span id="answer"></span>
+</div>
 </body>
+<script>
+    var findMiddle = function (word) {
+        var answer;
+        var divideWordInHalf = word.length / 2;
+
+        if (word.length % 2 === 0) {
+            answer = word.substring(divideWordInHalf - 1, divideWordInHalf + 1);
+            document.getElementById('answer').innerText = "The two middle letters of "+ word +" are "+ answer;
+        }
+        else {
+            answer = word.substring(divideWordInHalf - .5, divideWordInHalf + .5);
+            document.getElementById('answer').innerText = "The middle letter of "+ word +" is "+ answer;
+        }
+    };
+</script>
 </html>
 
