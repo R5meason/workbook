@@ -3,55 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Random number or array Element</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
 </head>
-
-<script>
-    var random_range = function(start_num, end_num) {
-      start_num = (Math.floor(Math.random()*start_num)+1);  //picks random number and multiplies it by the start_num plus one.
-      end_num = (Math.floor(Math.random()*end_num)+1) ;   //same for the end number
-      console.log((end_num+1) - start_num); //+1 was added in case start-end = 0;
-    };
-
-    function random_range_dan(start,end){
-        var random_percent = Math.random();
-        var initial_random = Math.floor(random_percent * (end+1 - start));
-        var random = initial_random + start;
-        return random;
-    }
-    random_range(1,20);
-
-
-    function jasons_mad_mad_random(num1, num2){
-        var range = num2 - num1 + 1;
-        var answer = null;
-
-        if(typeof num1 === 'number'){
-            answer = Math.floor(Math.random() * range + num1);
-        }
-        else if(Array.isArray(num1)){
-            answer = Math.floor(Math.random()* num1.length);
-            answer = num1[answer];
-        }
-        return answer;
-
-    }
-
-
-</script>
-
 <body>
-<h2>random number or array element</h2>
-
-<p>Build a function, random_range, that takes 2 parameters, start_num and end_num. OPTIONALLY: If start_num is an array instead (and end_num isn't specified), then it returns a random element from the arra</p>
-
-<p>Example:</p>
-<p>random_range(2,15) - returns 7</p>
-
-<p>random_range(1,100) - returns 85</p>
-
-<p>random_range(['a','b','c','d','e']) - returns b</p>
-
-<p></p>
-<p></p>
+<header>
+    <h2>Random Number</h2>
+    <p>Build a function, random_range, that takes 2 parameters, start_num and end_num. </p>
+    <p>Example:</p>
+    <p>random_range(2,15) - returns 7</p>
+    <p>random_range(1,100) - returns 85</p>
+</header>
+<div id="result">
+    <label>Enter a low number: <input id="loNum" style="width: 50px"></label>
+    <br>
+    <label>Enter a high number: <input id="hiNum" style="width: 50px"></label>
+    <br>
+    <button onclick="random_range(
+            document.getElementById('loNum').value,
+            document.getElementById('hiNum').value
+    )">Generate</button>
+    <br><br>
+    <div id="answer"></div>
+</div>
 </body>
+<script>
+    var random_range = function (num1, num2) {
+        var answer = Math.floor((Math.random() * num2) + num1);
+        console.log(answer);
+        document.getElementById('answer').innerText = "Random # between "+num1+" and "+num2+": "+answer;
+    };
+</script>
 </html>
