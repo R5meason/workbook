@@ -27,10 +27,9 @@
 </div>
 </body>
 <script>
-    var random_range = function (num1, num2) {
-        var answer = Math.floor((Math.random() * num2) + num1);
-        console.log(answer);
-        document.getElementById('answer').innerText = "Random # between "+num1+" and "+num2+": "+answer;
+    var random_range = function (start_num, end_num) {
+        var answer = Math.floor(Math.random()*end_num+start_num);
+        document.getElementById('answer').innerText = "Random # between "+start_num+" and "+end_num+": "+answer;
     };
 </script>
 </html>
