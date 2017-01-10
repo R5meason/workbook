@@ -3,128 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>math combo</title>
-    <script>
-
-        var cocococombomath = function (num1, num2, num3, num4, num5) {
-            console.log("arguments: ",arguments);
-            var a_mult = num1 * num2;
-            console.log(num1 +" multiplied by "+num2+" = " +a_mult);
-
-            var b_add = a_mult + num3;
-            console.log(a_mult+" plus "+num3+" = "+b_add);
-
-            var c_dvide = b_add/num4;
-            console.log(b_add+" divided by "+num4+" = "+c_dvide);
-
-            var d_subtr = c_dvide - num5;
-            console.log(c_dvide+" subtracted by "+num5+" = "+d_subtr)
-        }
-        var cocococombomath2 = function (num1, num2, num3, num4, num5) {
-            console.log("arguments: ",arguments);
-            var result = num1;
-            result = result * num2;
-            console.log(num1 +" multiplied by "+num2+" = " +a_mult);
-
-            result = result + num3;
-            console.log(a_mult+" plus "+num3+" = "+b_add);
-
-            result = result/num4;
-            console.log(b_add+" divided by "+num4+" = "+c_dvide);
-
-            result = result - num5;
-            console.log(c_dvide+" subtracted by "+num5+" = "+d_subtr)
-        };
-
-
-        /*begin DAN IS A MADMAN */
-        var do_math = function (num1, num2, operator) {        //function takes 2 numbers, and decides what to do with them based on the 'operator' parameter
-            switch (operator) {
-                case "*":
-                case "x":             //multiple cases without a 'break' provide the same result
-                case "X":
-                    return (num1 * num2);
-
-                case "-":
-                    return (num1 - num2);
-
-                case "+":
-                    return (num1 + num2);
-
-                case "/":
-                    return (num1 / num2);
-            }
-        };
-        function holycombomathbatman(){
-            //arguments
-            var operations = ['*','+','/','-'];
-            var result = arguments[0];
-            for(var i = 1; i<=operations.length; i++){
-                result = do_math(result,arguments[i],operations[i-1])
-            }
-            return result;
-        }
-
-        /*the madness continues*/
-        function holycombomathbatman2(){
-            //arguments
-            //BEGIN STANDARD FOR
-            for(var i=0; i<arguments.length; i++){
-                if(Array.isArray(arguments[i])){
-                    var operations = arguments[i];
-                    delete arguments[i];
-                    break;
-                }
-            }
-            //END STANDARD FOR
-            //while method
-            var i=0;
-            var operations = null;
-            while(i<arguments.length && operations ==null){
-                if(Array.isArray(arguments[i])){
-                    operations = arguments[i];
-                    delete arguments[i];
-                }
-                i++;
-            }
-            //END WHILE
-            //do while method
-            var i=0;
-            var operations = null;
-            do{
-                if(Array.isArray(arguments[i])){
-                    operations = arguments[i];
-                    delete arguments[i];
-                }
-                i++;
-            } while(i<arguments.length && operations ==null)
-            //end DO WHILE
-
-            var result = arguments[0];
-            for(var i = 1; i<=operations.length; i++){
-                result = do_math(result,arguments[i],operations[i-1])
-            }
-            return result;
-        }
-
-        cocococombomath(10, 10, 50, 2, 5);
-
-        console.log('batman says: '+holycombomathbatman(10, 10, 50, 2, 5));
-
-        console.log('robyn retorts: '+holycombomathbatman2(10,10,['*','+','/','-'],50,2,5))
-    </script>
+    <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 <body>
-
-
-<h1>math combo</h1>
-
-<p>Build a function, cocococombomath, that takes 5 numbers as parameters.
-It: - multiplies the 1st number x the 2nd number - the result of that, it adds the 3rd number - the result of that, it divides by the 4th number - the result of that, it subtracts the 5th number - it returns that result
-</p>
-
-<p><em>example:</em></p>
-<p>cocococombomath(3,2,6,3,5)</p>
-<p>Returns -1</p>
-
+<header>
+    <h1>Math Combo</h1>
+    <p>Build a function, cocococombomath, that takes 5 numbers as parameters.
+        It: - multiplies the 1st number x the 2nd number - the result of that, it adds the 3rd number - the result of
+        that, it divides by the 4th number - the result of that, it subtracts the 5th number - it returns that result
+    </p>
+    <p>
+        <em>example:</em>
+    </p>
+    <p>cocococombomath(3,2,6,3,5)</p>
+    <p>Returns -1</p>
+</header>
+<div id="result">
+    <h4>Enter 5 numbers:</h4>
+    <label><input id="num1" type="text" style="width: 50px"></label> x
+    <label><input id="num2" type="text" style="width: 50px"></label> +
+    <label><input id="num3" type="text" style="width: 50px"></label> /
+    <label><input id="num4" type="text" style="width: 50px"></label> -
+    <label><input id="num5" type="text" style="width: 50px"></label>
+    <button onclick='cocococombomath(
+    document.getElementById("num1").value,
+    document.getElementById("num2").value,
+    document.getElementById("num3").value,
+    document.getElementById("num4").value,
+    document.getElementById("num5").value
+    )'>=
+    </button>
+    <br><br>
+    <div id="answer"></div>
+</div>
 </body>
+<script>
+    var cocococombomath = function (num1, num2, num3, num4, num5) {
+
+        var numCheck = [];
+        numCheck.push(parseInt(num1), parseInt(num2), parseInt(num3), parseInt(num4), parseInt(num5));
+
+        for (var i = 0; i <= numCheck.length -1; i++){
+            if (isNaN(numCheck[i])) {
+                document.getElementById("answer").innerText = "Please Enter A Number In Each Space Above";
+                return;
+            }
+        }
+
+        var multiply_num1_num2 = numCheck[0] * numCheck[1];
+        var add_num3 = multiply_num1_num2 + numCheck[2];
+        var divide_with_num4 = add_num3 / numCheck[3];
+        var subtract_with_num5 = divide_with_num4 - numCheck[4];
+        document.getElementById("answer").innerText = "Answer: " + subtract_with_num5;
+    };
+</script>
 </html>
