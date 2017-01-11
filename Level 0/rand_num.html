@@ -21,15 +21,24 @@
     <button onclick="random_range(
             document.getElementById('loNum').value,
             document.getElementById('hiNum').value
-    )">Generate</button>
+    )">Generate
+    </button>
     <br><br>
     <div id="answer"></div>
 </div>
 </body>
 <script>
-    var random_range = function (start_num, end_num) {
-        var answer = Math.floor(Math.random()*end_num+start_num);
-        document.getElementById('answer').innerText = "Random # between "+start_num+" and "+end_num+": "+answer;
+    var random_range = function (num1, num2) {
+        var start_num = parseInt(num1);
+        var end_num = parseInt(num2);
+
+        if (isNaN(start_num) || isNaN(num2)) {
+            document.getElementById('answer').innerText = "Please enter a number in the spaces above"
+        }
+        else {
+            var answer = Math.floor(Math.random() * end_num + start_num);
+            document.getElementById('answer').innerText = "Random # between " + start_num + " and " + end_num + ": " + answer;
+        }
     };
 </script>
 </html>
