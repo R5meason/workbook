@@ -4,30 +4,11 @@
     <meta charset="UTF-8">
     <title>Total Revere</title>
     <link type="text/css" rel="stylesheet" href="style.css">
-    <script>
-
-        //var i starts at the end of the array (4) and subtracted 1
-        //(while there are 4 items, the positioning is 0,1,2,3
-        //and we want to begin at the array item in the 3rd position.
-        //the loop ends at the beginning of the array, position 0.
-        //the de-incrementer counts down from 3 to 0. 
-
-
-        var arrayReverse = function (myArray) {
-            for (var i = myArray.length-1; i >= 0 ; i--) {
-                console.log(myArray[i]);
-            }
-
-        };
-
-        arrayReverse(["hot", "cold", "fire", "ice"]);
-
-
-    </script>
 
 </head>
-<body>
 
+<body>
+<header>
 <h1>Array Reverser</h1>
 
 <p>Build a function that takes in an array and reverses it</p>
@@ -43,6 +24,27 @@ The function should output an array that is in reverse order from the input arra
 <p>Output - ['23', 'what', 'Bob', 45, 'hello']</p>
 <p>Avoid using pre-built functions that do something similar</p>
 
-
+</header>
 </body>
+<script>
+
+    //var i starts at the end of the array (4) and subtracted 1
+    //(while there are 4 items, the positioning is 0,1,2,3
+    //and we want to begin at the array item in the 3rd position.
+    //the loop ends at the beginning of the array, position 0.
+    //the de-incrementer counts down from 3 to 0.
+
+
+    var arrayReverse = function (myArray) {
+        for (var i = myArray.length-1; i >= 0 ; i--) {
+            console.log(myArray[i]);
+        }
+
+    };
+
+    arrayReverse(["hot", "cold", "fire", "ice"]);
+
+
+</script>
+
 </html>

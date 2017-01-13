@@ -4,78 +4,13 @@
     <meta charset="UTF-8">
     <title>One to Multi</title>
     <link type="text/css" rel="stylesheet" href="style.css">
-    <script>
-
-        var myArray = ['hello', 34, true, false, 'goodbye', 56, 12, '25', true];
-
-
-        function multi_sort() {
-            var stringArray = [];
-            var numberArray = [];
-            var booleanArray = [];
-            for (var i = 0; i < myArray.length; i++)
-                if (typeof myArray[i] === "string") {
-                   stringArray.push(myArray[i]);
-                }
-                else if (typeof myArray[i] === "number") {
-                    numberArray.push(myArray[i]);
-                }
-                else {
-                    booleanArray.push(myArray[i]);
-                }
-
-                console.log("["+stringArray+"] ["+numberArray+"] ["+booleanArray+"]");
-        }
-
-        function efficient_multi_sort(myArray){
-            var output_object = {
-                string: [],
-                number: [],
-                boolean: []
-            };
-            for(var i in myArray){
-                var dataType = typeof myArray[i];
-                if(output[datatype] !== undefined){
-                    output_object[dataType].push(myArray[i]);
-                } else{
-                    output_object[dataType] = [myArray[i]];
-                }
-            }
-            return output_object;
-        }
-
-        function bamboozling_multi_sort(myArray){
-            var stringArray = [];
-            var numberArray = [];
-            var booleanArray = [];
-
-            for(var i in myArray){
-                this[typeof myArray[i] + 'Array'].push(myArray[i]);
-            }
-        }
-        function bamboozling_multi_sort2(myArray){
-            var stringArray = [];
-            var numberArray = [];
-            var booleanArray = [];
-            var reference_object = {
-                string: stringArray,
-                number: numberArray,
-                boolean: booleanArray
-            }
-            for(var i in myArray){
-                reference_object[typeof myArray[i]].push(myArray[i]);
-            }
-        }
-        multi_sort();
-
-    </script>
 
 
 </head>
 
 
 <body>
-
+<header>
 <h1>One to Multi</h1>
 
 <h3>Build a function that sorts an array into a multidimensional array grouped by data type</h3>
@@ -88,6 +23,72 @@
 <p>groupArray(myArray);</p>
 <p>Output - [['hello, 'goodbye', '25'], [34, 56, 12], [true, false, true]]</p>
 
-
+</header>
 </body>
+<script>
+
+    var myArray = ['hello', 34, true, false, 'goodbye', 56, 12, '25', true];
+
+
+    function multi_sort() {
+        var stringArray = [];
+        var numberArray = [];
+        var booleanArray = [];
+        for (var i = 0; i < myArray.length; i++)
+            if (typeof myArray[i] === "string") {
+                stringArray.push(myArray[i]);
+            }
+            else if (typeof myArray[i] === "number") {
+                numberArray.push(myArray[i]);
+            }
+            else {
+                booleanArray.push(myArray[i]);
+            }
+
+        console.log("["+stringArray+"] ["+numberArray+"] ["+booleanArray+"]");
+    }
+
+    function efficient_multi_sort(myArray){
+        var output_object = {
+            string: [],
+            number: [],
+            boolean: []
+        };
+        for(var i in myArray){
+            var dataType = typeof myArray[i];
+            if(output[datatype] !== undefined){
+                output_object[dataType].push(myArray[i]);
+            } else{
+                output_object[dataType] = [myArray[i]];
+            }
+        }
+        return output_object;
+    }
+
+    function bamboozling_multi_sort(myArray){
+        var stringArray = [];
+        var numberArray = [];
+        var booleanArray = [];
+
+        for(var i in myArray){
+            this[typeof myArray[i] + 'Array'].push(myArray[i]);
+        }
+    }
+    function bamboozling_multi_sort2(myArray){
+        var stringArray = [];
+        var numberArray = [];
+        var booleanArray = [];
+        var reference_object = {
+            string: stringArray,
+            number: numberArray,
+            boolean: booleanArray
+        }
+        for(var i in myArray){
+            reference_object[typeof myArray[i]].push(myArray[i]);
+        }
+    }
+    multi_sort();
+
+</script>
+
 </html>
