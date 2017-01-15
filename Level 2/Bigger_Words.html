@@ -2,35 +2,7 @@
 <html>
 <head>
     <title>P1: Bigger Words</title>
-    <script>
-        function biggerWords(myString, myArray) {
 
-            var myArray = ['bug', 'insect', 'mammal', 'reptile', 'mammoth', 'turtles'];
-            var myString = "losdsfdsdfsdfl";
-
-            //i loops thru the words' length in the array
-            for (var i = 0; i < myArray.length;) {
-
-
-                //for testing - //prints # of letters in each letter (array[i's position in array].length of word in array)
-                //console.log(myArray[i].length);
-                //compares the # of letters in the current word w/ the # of letters in myString
-                //if the condition above is true, this prints the word in myString if longer than a word in myArray
-                if (myArray[i].length < myString.length) {
-                    console.log(myString);
-                }
-
-                //if condition is false, the word in myArray is printed
-                else {
-                    console.log(myArray[i]);
-                }
-
-                //i is incremented by 1
-                i++
-            }
-        };
-        console.log(biggerWords());
-    </script>
 </head>
 <body>
 <h1>Bigger words</h1>
@@ -47,4 +19,33 @@
 <p>biggerWords('whales', myArray);</p>
 <p>Output - ['reptile', 'mammoth', 'turtles']</p>
 </body>
+<script>
+    function biggerWords(myString, myArray) {
+
+        var myArray = ['bug', 'insect', 'mammal', 'reptile', 'mammoth', 'turtles'];
+        var myString = "losdsfdsdfsdfl";
+
+        //i loops thru the words' length in the array
+        for (var i = 0; i < myArray.length;) {
+
+
+            //for testing - //prints # of letters in each letter (array[i's position in array].length of word in array)
+            //console.log(myArray[i].length);
+            //compares the # of letters in the current word w/ the # of letters in myString
+            //if the condition above is true, this prints the word in myString if longer than a word in myArray
+            if (myArray[i].length < myString.length) {
+                console.log(myString);
+            }
+
+            //if condition is false, the word in myArray is printed
+            else {
+                console.log(myArray[i]);
+            }
+
+            //i is incremented by 1
+            i++
+        }
+    };
+    console.log(biggerWords());
+</script>
 </html>
