@@ -3,62 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Pig Latin</title>
-    <script>
-        //this conditional checks to see if this is the first letter of the string
-        //substring @ 1 ignores the letter in the 0th position (word begins @ 1st position)
-        //it is then concatenated at the end with [i] (the letter at the 0th index),
-        // and finally concatenated w/ "ay".
-        var vowels = ["a", "e", "i", "o", "u"];
-        var word = "marsh";
 
-        var igpay = function (word) {
-                //check if the first letter of the word is a vowel
-                if (vowels.indexOf(word[0])>=0) {
-                    //if it is, just add 'yay' to the end
-                    word = word + "yay";
-                }
-                //if it isn't, then move first every letter from the beginning to the first vowel to the end and add 'ay'
-                else {
-                    //loop until you find the first vowel position
-                    for (var i = 1; i <= word.length; i++) {
-                        if (vowels.indexOf( word[i] )>=0) {
-                            //save that vowel position into a variable
-                            var firstVowel = i;
-                            break;
-                        }
-
-                    }
-
-                    //cut off the word from the start to the variable position
-                    word = word.substring(i) + word.substring(0,i) + "ay"
-                }
-                return word;
-        };
-        console.log(igpay(word));
-
-
-        //        var temp = "";
-        //        var myTempArray = [];
-        //        var igpay = function (stringConvert) {
-        //            for (var i = 0; i < stringConvert.length; i++) {
-        //                if (stringConvert[i] == " ") {
-        //
-        //                    myTempArray.push(stringConvert.substring(1, i) + stringConvert[0] + "ay");
-        //                    var temp = myTempArray[0];
-        //                    myTempArray = [];
-        //                }
-        //                else {
-        //
-        //                }
-        //            }
-        //            console.log(temp);
-        //        };
-        //
-        //
-        //        igpay("hello world");
-
-
-    </script>
 </head>
 <body>
 <pre>
@@ -83,4 +28,60 @@ Example:
 "Hello there" would be "Ellohay heretay"
 </pre>
 </body>
+<script>
+    //this conditional checks to see if this is the first letter of the string
+    //substring @ 1 ignores the letter in the 0th position (word begins @ 1st position)
+    //it is then concatenated at the end with [i] (the letter at the 0th index),
+    // and finally concatenated w/ "ay".
+    var vowels = ["a", "e", "i", "o", "u"];
+    var word = "marsh";
+
+    var igpay = function (word) {
+        //check if the first letter of the word is a vowel
+        if (vowels.indexOf(word[0])>=0) {
+            //if it is, just add 'yay' to the end
+            word = word + "yay";
+        }
+        //if it isn't, then move first every letter from the beginning to the first vowel to the end and add 'ay'
+        else {
+            //loop until you find the first vowel position
+            for (var i = 1; i <= word.length; i++) {
+                if (vowels.indexOf( word[i] )>=0) {
+                    //save that vowel position into a variable
+                    var firstVowel = i;
+                    break;
+                }
+
+            }
+
+            //cut off the word from the start to the variable position
+            word = word.substring(i) + word.substring(0,i) + "ay"
+        }
+        return word;
+    };
+    console.log(igpay(word));
+
+
+    //        var temp = "";
+    //        var myTempArray = [];
+    //        var igpay = function (stringConvert) {
+    //            for (var i = 0; i < stringConvert.length; i++) {
+    //                if (stringConvert[i] == " ") {
+    //
+    //                    myTempArray.push(stringConvert.substring(1, i) + stringConvert[0] + "ay");
+    //                    var temp = myTempArray[0];
+    //                    myTempArray = [];
+    //                }
+    //                else {
+    //
+    //                }
+    //            }
+    //            console.log(temp);
+    //        };
+    //
+    //
+    //        igpay("hello world");
+
+
+</script>
 </html>

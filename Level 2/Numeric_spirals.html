@@ -3,25 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Numeric Spirals</title>
-    <script>
 
-        var fibber = function (num1) {
-            fibArray = [0];//put in seed numbers 0 and 1
-            // i only put one seed number because the function is to take in one parameter.
-
-            fibArray.push(num1);// don't need this, and the parameter from the function only dictates how far we are going to count
-                                // I used it to push in the parameter
-            for (var i = 0; i <= fibArray.length; i++) {
-                if (i + 1 < 10) {
-                    var result = fibArray[i] + fibArray[i + 1];
-                    fibArray.push(result);
-                }
-            }
-            return fibArray;
-        };
-        fibber(1);
-        console.log(fibArray);
-    </script>
 </head>
 <body>
 <pre>
@@ -37,4 +19,23 @@ fibSequence(12);
 Output - 0 1 1 2 3 5 8 13 21 34 55 89
 </pre>
 </body>
+<script>
+
+    var fibber = function (num1) {
+        fibArray = [0];//put in seed numbers 0 and 1
+        // i only put one seed number because the function is to take in one parameter.
+
+        fibArray.push(num1);// don't need this, and the parameter from the function only dictates how far we are going to count
+                            // I used it to push in the parameter
+        for (var i = 0; i <= fibArray.length; i++) {
+            if (i + 1 < 10) {
+                var result = fibArray[i] + fibArray[i + 1];
+                fibArray.push(result);
+            }
+        }
+        return fibArray;
+    };
+    fibber(1);
+    console.log(fibArray);
+</script>
 </html>
